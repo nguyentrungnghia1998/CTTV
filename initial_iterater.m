@@ -18,7 +18,7 @@ Y_a_initial = [0.6565 -1.0053 0.5934 -0.2612 0.4904 0.6533 0.0286 -0.9361;
 b_a_initial = [1.5045 -0.2904 0.8204 0.1544 1.0847 -1.5262 0.4379 1.0963]';
 %% Simulation
 for i = 1:length(t)
-    u{i} = -2*s{i}-0.2*sin(0.3*t(i)*s{i})*s{i};
+    u{i} = W_a_initial*tanh(Y_a_initial*[s{i};t(i)]+b_a_initial);
     if i == length(t)
         break
     end
